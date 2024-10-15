@@ -50,10 +50,10 @@
                         <td><?php echo htmlspecialchars($upass); ?></td>
                         <td>
                             <button type="button" class="btn btn-success">
-                                <a href="./includes/update.inc.php" class="text-light text-decoration-none">Update</a>
+                                <a href="./update.php?updateid=<?php echo $uid; ?>" class="text-light text-decoration-none">Update</a>
                             </button>
                             <button type="button" class="btn btn-danger" name="delete">
-                                <a href="./includes/delete.inc.php?deleteid=<?php echo $uid; ?>"class="text-light text-decoration-none">Delete</a>
+                                <a href="./includes/delete.inc.php?deleteid=<?php echo $uid; ?>" class="text-light text-decoration-none">Delete</a>
                             </button>
                         </td>
                     </tr>

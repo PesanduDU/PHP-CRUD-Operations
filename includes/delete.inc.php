@@ -2,11 +2,6 @@
 
 require_once "dbh.inc.php";
 
-echo "Delete success!";
-
-echo '<br>';
-echo '<br>';
-
 if (isset($_GET['deleteid'])){
     
     $deleteid = $_GET['deleteid'];

@@ -15,20 +15,39 @@
 
     <div class="container my-5 px-5">
 
-        <form class="row g-3" action="./includes/insertData.inc.php" method="post">
+        <?php
+
+        if (isset($_GET['updateid'])) {
+            $uid = $_GET['updateid'];
+
+            require_once "./includes/retrievedata.php";
+            $data = getUser($uid);
+
+            foreach ($data as $row) {
+                $dplyUName = $row['username'];
+                $dplyUEmail = $row['email'];
+                $dplyUMobile = $row['mobile'];
+            }
+        } else {
+            $uid = 0;
+        }
+
+        ?>
+
+        <form class="row g-3" action="./includes/update.inc.php?updateid=<?php echo $uid ?>" method="post">
             <div class="col-12">
                 <label for="inputAddress" class="form-label">Userame</label>
-                <input type="text" class="form-control" name="username" placeholder="Enter your name" autocomplete="off">
+                <input type="text" class="form-control" name="username" autocomplete="off" value="<?php echo htmlspecialchars($dplyUName) ?>">
             </div>
 
             <div class="col-12">
                 <label for="inputAddress2" class="form-label">Email</label>
-                <input type="text" class="form-control" name="email" placeholder="Enter your email" autocomplete="off">
+                <input type="text" class="form-control" name="email" autocomplete="off" value="<?php echo htmlspecialchars($dplyUEmail) ?>">
             </div>
 
             <div class="col-12">
                 <label for="inputAddress2" class="form-label">Mobile</label>
-                <input type="text" class="form-control" name="mobile" placeholder="Enter your mobile number" autocomplete="off">
+                <input type="text" class="form-control" name="mobile" autocomplete="off" value="<?php echo htmlspecialchars($dplyUMobile) ?>">
             </div>
 
             <div class="col-12">
@@ -38,15 +57,15 @@
 
             <div class="col-12">
                 <label for="inputAddress2" class="form-label">Repeat Password</label>
-                <input type="password" class="form-control" name="repassword" placeholder="repeat your password" autocomplete="off">
+                <input type="password" class="form-control" name="repassword" placeholder="Repeat your password" autocomplete="off">
             </div>
 
             <div class="col-12">
-                <button type="submit" class="btn btn-primary custom-btn-width" name="submit">Submit</button>
+                <button type="submit" class="btn btn-success custom-btn-width" name="submit">Update</button>
             </div>
 
             <div class="col-12">
-                <button type="submit" class="btn btn-secondary custom-btn-width" name="submit">
+                <button type="submit" class="btn btn-secondary custom-btn-width">
                     <a href="display.php" class="text-light text-decoration-none">&nbsp;&nbsp;Back&nbsp;&nbsp;</a>
                 </button>
             </div>
