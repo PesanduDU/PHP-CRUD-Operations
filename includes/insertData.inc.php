@@ -49,5 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             die("Query Failed " . $e->getMessage());
             header("Location: ../user.php");
         }
+    } else {
+        header("Location: ../user.php");
+        exit();
     }
 }

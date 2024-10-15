@@ -52,8 +52,8 @@
                             <button type="button" class="btn btn-success">
                                 <a href="./includes/update.inc.php" class="text-light text-decoration-none">Update</a>
                             </button>
-                            <button type="button" class="btn btn-danger">
-                                <a href="./includes/delete.inc.php" class="text-light text-decoration-none">Delete</a>
+                            <button type="button" class="btn btn-danger" name="delete">
+                                <a href="./includes/delete.inc.php?deleteid=<?php echo $uid; ?>"class="text-light text-decoration-none">Delete</a>
                             </button>
                         </td>
                     </tr>
