@@ -7,9 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
             require_once "dbh.inc.php";
 
-            // $userid = 0;
-
-            if (isset($_GET['updateid'])){
+            if (isset($_GET['updateid'])) {
                 $userid  = $_GET['updateid'];
             } else {
                 $userid = 0;
@@ -22,19 +20,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $updateuserrepeatpassword = $_POST['repassword'];
 
             if (empty($updateusername) || empty($updateuseremail) || empty($updateusermobile) || empty($updateuserpassword) || empty($updateuserrepeatpassword)) {
-                header('Location: ../update.php?updateid='.$userid.'&error=emptyinputfeilds');
+                header('Location: ../update.php?updateid=' . $userid . '&error=emptyinputfeilds');
                 exit();
             } elseif (!preg_match("/^[a-zA-Z0-9_@#$.]*$/", $updateusername)) {
-                header('Location: ../update.php?updateid='.$userid.'&error=invalidusername');
+                header('Location: ../update.php?updateid=' . $userid . '&error=invalidusername');
                 exit();
             } elseif (!filter_var($updateuseremail, FILTER_VALIDATE_EMAIL)) {
-                header('Location: ../update.php?updateid='.$userid.'&error=invalidemail');
+                header('Location: ../update.php?updateid=' . $userid . '&error=invalidemail');
                 exit();
             } elseif (!preg_match("/^\+?[0-9]{10,15}$/", $updateusermobile)) {
-                header('Location: ../update.php?updateid='.$userid.'&error=invalidmobile');
+                header('Location: ../update.php?updateid=' . $userid . '&error=invalidmobile');
                 exit();
             } elseif ($updateuserpassword !== $updateuserrepeatpassword) {
-                header('Location: ../update.php?updateid='.$userid.'&error=passwordmismatch');
+                header('Location: ../update.php?updateid=' . $userid . '&error=passwordmismatch');
                 exit();
             } else {
                 require_once "dbh.inc.php";

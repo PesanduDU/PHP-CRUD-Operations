@@ -14,10 +14,10 @@ function getAllUsers() {
 
 function getUser(INT $id) {
 
-    global $pdo; // Use the PDO instance from the included file
+    global $pdo;
     $query = "SELECT * FROM users WHERE id=?;";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$id]);
 
-    return $stmt->fetchAll(PDO::FETCH_ASSOC); // Use the PDO instance from the included file
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
