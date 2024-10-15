@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if (empty($username) || empty($useremail) || empty($usermobile) || empty($userpassword) || empty($userrepeatpassword)) {
                 header("Location: ../user.php?error=emptyinputfeilds");
                 exit();
-            } elseif (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
+            } elseif (!preg_match("/^[a-zA-Z0-9_@#$]*$/", $username)) {
                 header("Location: ../user.php?error=invalidusername");
                 exit();
             } elseif (!filter_var($useremail, FILTER_VALIDATE_EMAIL)) {
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $pdo = null;
                 $stmt = null;
 
-                header("Location: ../user.php?datainsert=success");
+                header("Location: ../display.php");
                 exit();
             }
         } catch (PDOException $e) {

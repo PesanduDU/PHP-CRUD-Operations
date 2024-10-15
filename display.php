@@ -12,19 +12,56 @@
 </head>
 
 <body>
+    <div class="container">
+        <button type="button" class="btn btn-primary mt-5 mb-3"><a href="user.php" class="text-light text-decoration-none">Add User</a></button>
 
-    <div class="container my-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID No.</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Operation</th>
+                </tr>
+            </thead>
+            <tbody>
 
-        <button class="c-button">
-            <span class="c-main">
-                <span class="c-ico"><span class="c-blur"></span> <span class="ico-text">+</span></span>
-                Add User
-            </span>
-        </button>
+                <?php
 
+                require_once "./includes/retrievedata.php";
+                $data = getAllUsers();
 
+                foreach ($data as $row):
+                    $uid = $row['id'];
+                    $uname = $row['username'];
+                    $uemail = $row['email'];
+                    $umobile = $row['mobile'];
+                    $upass = $row['pwd'];
+
+                ?>
+
+                    <tr>
+                        <th scope="row"><?php echo htmlspecialchars($uid); ?></th>
+                        <td><?php echo htmlspecialchars($uname); ?></td>
+                        <td><?php echo htmlspecialchars($uemail); ?></td>
+                        <td><?php echo htmlspecialchars($umobile); ?></td>
+                        <td><?php echo htmlspecialchars($upass); ?></td>
+                        <td>
+                            <button type="button" class="btn btn-success">
+                                <a href="./includes/update.inc.php" class="text-light text-decoration-none">Update</a>
+                            </button>
+                            <button type="button" class="btn btn-danger">
+                                <a href="./includes/delete.inc.php" class="text-light text-decoration-none">Delete</a>
+                            </button>
+                        </td>
+                    </tr>
+
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
-
 </body>
 
 </html>

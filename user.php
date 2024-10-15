@@ -25,7 +25,7 @@
                 <label for="inputAddress2" class="form-label">Email</label>
                 <input type="text" class="form-control" name="email" placeholder="Enter your email" autocomplete="off">
             </div>
-            
+
             <div class="col-12">
                 <label for="inputAddress2" class="form-label">Mobile</label>
                 <input type="text" class="form-control" name="mobile" placeholder="Enter your mobile number" autocomplete="off">
@@ -33,16 +33,22 @@
 
             <div class="col-12">
                 <label for="inputAddress2" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password"  placeholder="Enter your password" autocomplete="off">
+                <input type="password" class="form-control" name="password" placeholder="Enter your password" autocomplete="off">
             </div>
 
             <div class="col-12">
                 <label for="inputAddress2" class="form-label">Repeat Password</label>
-                <input type="password" class="form-control" name="repassword"  placeholder="repeat your password" autocomplete="off">
+                <input type="password" class="form-control" name="repassword" placeholder="repeat your password" autocomplete="off">
             </div>
-            
+
             <div class="col-12">
-                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                <button type="submit" class="btn btn-primary custom-btn-width" name="submit">Submit</button>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-danger custom-btn-width" name="submit">
+                    <a href="display.php" class="text-light text-decoration-none">&nbsp;&nbsp;Back&nbsp;&nbsp;</a>
+                </button>
             </div>
         </form>
 
